@@ -36,7 +36,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="CustomRenderer\HorizontalListView.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="View\DayView.xaml.cs">
+      <DependentUpon>DayView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -60,9 +64,14 @@
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="View\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\DayView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

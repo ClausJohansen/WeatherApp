@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cr="clr-namespace:WeatherApp.CustomRenderer;assembly=WeatherApp"
              x:Class="WeatherApp.View.MainPage"
              BackgroundImage="background">
 
@@ -50,6 +51,7 @@
 
     </Grid>
 
+    <!--
     <Grid Grid.Row="2">
 
       <Grid.ColumnDefinitions>
@@ -63,6 +65,15 @@
       <BoxView Grid.Column="2" BackgroundColor="#22FFFFFF" />
 
     </Grid>
+    -->
+
+    <ScrollView Grid.Row="2"  Orientation="Horizontal">
+      <Grid x:Name="daysGrid" />        
+    </ScrollView>
+
+    <!--<cr:HorizontalListView Grid.Row="2" ItemsSource="{Binding Days}">
+    
+    </cr:HorizontalListView>-->
 
   </Grid>
 
