@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using WeatherApp.ViewModel;
 using Xamarin.Forms;
 
 namespace WeatherApp
@@ -11,20 +11,8 @@ namespace WeatherApp
     {
         public App()
         {
-            // The root page of your application
-            MainPage = new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
+            MainViewModel mainModel = new MainViewModel();
+            MainPage = new View.MainPage(mainModel);
         }
 
         protected override void OnStart()
