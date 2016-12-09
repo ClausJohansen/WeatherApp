@@ -32,11 +32,13 @@
 
       <StackLayout Grid.Column="0" BackgroundColor="#22FFFFFF">
         
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Height="50">
           <Label Text="01" FontSize="Small"/>
           <Label Text="00" FontSize="Micro"/>
         </StackLayout>
 
+        <BoxView BackgroundColor="Green" />
+        
         <Image Source="cloudrain" />
         <Image Source="windw22" />
         <Image Source="pressurelow"/>
