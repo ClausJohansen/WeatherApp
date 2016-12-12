@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:cr="clr-namespace:WeatherApp.CustomRenderer;assembly=WeatherApp"
-             x:Class="WeatherApp.View.MainPage"
-             BackgroundImage="background">
+             x:Class="WeatherApp.View.MainPage">
 
   <Grid>
 
@@ -16,9 +14,8 @@
     </Grid.RowDefinitions>
 
     <StackLayout Grid.Row="0" Padding="20">
-      <Label Text="Copenhagen" FontSize="Large" />
-      <Label Text="950 Meters" FontSize="Micro" />
-      <Label x:Name="DateLabel" Text="{Binding CurrentDateTimeString}" FontSize="Small" />
+      <Label x:Name="lblCity" Text="Copenhagen" FontSize="Large" />
+      <Label x:Name="lblDate" Text="" FontSize="Small" />
     </StackLayout>
 
     <Grid Grid.Row="1">
@@ -31,22 +28,22 @@
       </Grid.ColumnDefinitions>
 
       <StackLayout Grid.Column="0" BackgroundColor="#22FFFFFF">
-        
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Height="50">
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
           <Label Text="01" FontSize="Small"/>
           <Label Text="00" FontSize="Micro"/>
         </StackLayout>
 
         <BoxView BackgroundColor="Green" />
-        
+
         <Image Source="cloudrain" />
         <Image Source="windw22" />
         <Image Source="pressurelow"/>
-        
+
       </StackLayout>
-      
-      
-      
+
+
+
       <BoxView Grid.Column="1" BackgroundColor="#22FFFFFF" />
       <BoxView Grid.Column="2" BackgroundColor="#22FFFFFF" />
       <BoxView Grid.Column="3" BackgroundColor="#22FFFFFF" />
@@ -70,7 +67,7 @@
     -->
 
     <ScrollView Grid.Row="2"  Orientation="Horizontal">
-      <Grid x:Name="daysGrid" />        
+      <Grid x:Name="daysGrid" />
     </ScrollView>
 
     <!--<cr:HorizontalListView Grid.Row="2" ItemsSource="{Binding Days}">
@@ -78,5 +75,6 @@
     </cr:HorizontalListView>-->
 
   </Grid>
+
 
 </ContentPage>

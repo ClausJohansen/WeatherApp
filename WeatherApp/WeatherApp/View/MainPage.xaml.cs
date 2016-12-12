@@ -3,32 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WeatherApp.ViewModel;
+
 using Xamarin.Forms;
 
 namespace WeatherApp.View
 {
     public partial class MainPage : ContentPage
     {
-        private MainViewModel model;
-
-        public MainPage(MainViewModel model)
+        public MainPage()
         {
-            this.model = model;
-            BindingContext = this.model;
-
+            // await GetData();
             InitializeComponent();
+        }
 
-            ScrollView s = new ScrollView();
-            
-            for(int i = 0; i < model.Days.Count; i++)
-            {
-                DateTime day = model.Days[i];
-                ColumnDefinition cd = new ColumnDefinition { Width = 100 };
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            Weather data = await Core.GetWeather("Odense");
 
-                daysGrid.ColumnDefinitions.Add(cd);
-                daysGrid.Children.Add(new DayView(), i, 0);
-            }
+            lblCity.Text = data.Title;
+            lblDate.Text = data.Humidity;
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WeatherApp.ViewModel;
+using WeatherApp.View;
 using Xamarin.Forms;
 
 namespace WeatherApp
@@ -11,8 +11,8 @@ namespace WeatherApp
     {
         public App()
         {
-            MainViewModel mainModel = new MainViewModel();
-            MainPage = new View.MainPage(mainModel);
+            // MainPage = new NavigationPage(new WeatherPage());
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
