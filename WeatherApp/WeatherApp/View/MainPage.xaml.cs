@@ -19,10 +19,10 @@ namespace WeatherApp.View
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            Weather data = await Core.GetWeather("Odense");
+            // Weather data = await Model.GetWeather("Odense");
 
-            lblCity.Text = data.Title;
-            lblDate.Text = data.Humidity;
+            //lblCity.Text = data.Title;
+            //lblDate.Text = data.Humidity;
         }
     }
 }

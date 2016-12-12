@@ -1,18 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using WeatherApp.Entity;
+using WeatherApp.Model.Network;
 
-namespace WeatherApp
+namespace WeatherApp.Model
 {
-    public class Core
+    public class MainPageModel
     {
-        public static async Task<Weather> GetWeather(string cityName)
+        private DataService service;
+
+        public MainPageModel(DataService service)
+        {
+            this.service = service;
+        }
+
+        public async Task<Weather> GetWeather(string cityName)
         {
             //Sign up for a free API key at http://openweathermap.org/appid
             string key = "108a3baa8fb4cbb2cb73871c6da5442e";
             string queryString = "http://api.openweathermap.org/data/2.5/weather?q="
                 + cityName + ",dk&appid=" + key;
 
-            var results = await DataService.getDataFromService(queryString).ConfigureAwait(false);
+            var results = await service.getDataFromService(queryString).ConfigureAwait(false);
 
             if (results["weather"] != null)
             {
