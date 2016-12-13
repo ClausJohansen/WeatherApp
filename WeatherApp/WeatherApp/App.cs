@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using WeatherApp.Model;
+using WeatherApp.Model.Network;
 using WeatherApp.View;
+using WeatherApp.ViewModel;
 using Xamarin.Forms;
 
 namespace WeatherApp
@@ -12,7 +15,11 @@ namespace WeatherApp
         public App()
         {
             // MainPage = new NavigationPage(new WeatherPage());
-            MainPage = new MainPage();
+            var apiConnection = new DataService();
+            var model = new MainPageModel(apiConnection);
+            var viewModel = new MainPageViewModel(model);
+
+            MainPage = new MainPage(viewModel);
         }
 
         protected override void OnStart()
